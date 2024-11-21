@@ -59,6 +59,7 @@ header {
     position: fixed;
     top: 50%;
     left: 50%;
+    right: 50%;
     transform: translate(-50%, -50%);
 
     transition: all 1s ease;
@@ -338,6 +339,15 @@ form {
 }
 
 @media (max-width: 550px) {
+
+    header {
+        top: 30%;
+        transform: translate(-65%, -50%);
+
+        &.transition {
+            transform: translate(-65%, -50%);
+        }
+    }
 
     form .search-wrapper {
         background: none;
