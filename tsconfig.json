@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "target": "ES2022", // Compila il codice per ECMAScript 2022
+        "module": "ESNext", // Utilizza il sistema di moduli ECMAScript
+        "lib": [
+            "ES2023",
+            "dom"
+        ],
+        "strict": true, // Abilita controlli di tipo rigorosi
+        "esModuleInterop": true, // Migliora la compatibilità con i moduli CommonJS
+        "sourceMap": true,
+        "skipLibCheck": true, // Salta il controllo dei tipi nei file delle librerie
+        "forceConsistentCasingInFileNames": true, // Impone l'uso coerente delle maiuscole/minuscole nei nomi dei file
+        "outDir": "./dist", // Specifica la directory di output per i file compilati
+        "rootDir": "./src", // Specifica la directory principale dei file sorgente
+        "moduleResolution": "node", // Utilizza la risoluzione dei moduli stile Node.js
+        "resolveJsonModule": true, // Permette l'importazione di file JSON
+        "isolatedModules": true, // Abilita la compilazione isolata dei moduli
+    },
+    "include": [
+        "src/**/*"
+    ], // Include tutti i file TypeScript nella cartella 'src'
+    "exclude": [
+        "node_modules",
+        "**/*.test.ts"
+    ] // Esclude la cartella 'node_modules' e i file di test
+}

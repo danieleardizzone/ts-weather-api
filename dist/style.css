@@ -1,0 +1,357 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+input,
+button {
+    font: inherit;
+}
+
+p {
+    overflow-wrap: break-word;
+}
+
+body {
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.visibility-hidden {
+    visibility: hidden;
+}
+
+.d-none {
+    display: none;
+}
+
+/* in questo modo la nostra label con la classe .visually-hidden viene considerata solo dagli screen-reader, ma non viene visualizzata in pagina */
+
+header {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    transition: all 1s ease;
+
+    &.transition {
+        top: 8%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    width: 60%;
+    max-width: 600px;
+    z-index: 1;
+}
+
+form {
+    position: relative;
+
+    .search-wrapper {
+        display: flex;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+        border-radius: 16px;
+
+        background-color: #fff;
+
+        input {
+            flex: 1;
+            padding: 16px 16px 16px 24px;
+            background: none;
+            border: none;
+
+            transition: 0.5s;
+
+            &:hover {
+                font-weight: bold;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        button[type="submit"] {
+            padding: 16px;
+            background: none;
+            border: none;
+            border-top-right-radius: 16px;
+            border-bottom-right-radius: 16px;
+            cursor: pointer;
+            width: 150px;
+            text-align: center;
+
+            &:hover {
+                font-weight: bold;
+
+            }
+        }
+    }
+
+    .search-results {
+        position: absolute;
+        top: 130%;
+        width: 100%;
+        background-color: #fff;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        border-radius: 16px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        opacity: 0;
+        transition: opacity 0.5s ease;
+
+        &.transition {
+            opacity: 1;
+        }
+
+
+        li {
+            padding: 16px;
+            border-bottom: 1px solid #eee;
+
+            button {
+                background: none;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                text-align: left;
+
+                transition: 0.5s;
+
+                &:hover {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+}
+
+.weather-card {
+    position: fixed;
+    top: 150%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 90%;
+    max-width: 800px;
+    height: 530px;
+
+    transition: all 2s ease;
+
+    &.transition {
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.weather-card {
+    background-color: #fff;
+    overflow: hidden;
+
+    border-radius: 32px;
+
+    .weather-stats {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        height: 260px;
+
+        background-color: #2193b0;
+        background: linear-gradient(to right, #6dd5ed, #2193b0);
+        color: #fff;
+
+        &.clear {
+            background: #56ccf2;
+            background: linear-gradient(to left, #2f80ed, #56ccf2);
+        }
+
+        &.clouds {
+            background: #757f9a;
+            background: linear-gradient(to left, #d7dde8, #757f9a);
+            color: #222;
+        }
+
+        &.snow {
+            background: #d3cce3;
+            background: linear-gradient(to left, #e9e4f0, #d3cce3);
+            color: #222;
+        }
+
+        &.rain {
+            background: #bdc3c7;
+            background: linear-gradient(to left, #2c3e50, #bdc3c7);
+        }
+
+        &.thunderstorm {
+            background: #485563;
+            background: linear-gradient(to left, #29323c, #485563);
+        }
+
+        .weather-main {
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        .weather-location {
+            font-size: 16px;
+        }
+
+        .weather-temperature {
+            font-size: 36px;
+            font-weight: bold;
+        }
+    }
+
+    .weather-daily {
+        padding: 24px;
+
+        .day-selection {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            button {
+                background: none;
+                border: none;
+                cursor: pointer;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .previous-day_week-day,
+                .next-day_week-day {
+                    text-transform: capitalize;
+                    font-size: 14px;
+                }
+
+                .previous-day_date,
+                .next-day_date {
+                    color: #666;
+                    font-size: 10px;
+                }
+
+            }
+
+            .day {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .day_week-day {
+                    text-transform: capitalize;
+                }
+
+                .day_date {
+                    color: #666;
+                    font-size: 12px;
+                }
+
+            }
+
+        }
+
+        ul {
+            display: flex;
+            justify-content: flex-start;
+            gap: 5px;
+            overflow-y: auto;
+
+            list-style: none;
+            padding: 10px;
+            margin: 0;
+
+            li {
+                flex: 0 0 calc(25% - 5px);
+                max-width: 150px;
+                height: 140px;
+
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                text-align: center;
+                justify-content: space-between;
+                padding: 10px;
+
+                border: 2px dashed #666;
+                border-radius: 16px;
+
+
+                .stats {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0;
+
+                    .temperature {
+                        font-size: 24px;
+                        font-weight: bold;
+                    }
+
+                    .main {
+                        text-transform: capitalize;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 550px) {
+
+    form .search-wrapper {
+        background: none;
+        box-shadow: none;
+
+        input {
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+        }
+
+        button {
+            color: #fff;
+        }
+    }
+
+}
