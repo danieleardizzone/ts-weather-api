@@ -41,6 +41,7 @@
         const pageHeader = document.querySelector('header');
         citySearchForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            cityInput.blur();
             if (!searchResults.classList.contains('transition')) {
                 searchResults.classList.add('transition');
             }

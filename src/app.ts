@@ -16,6 +16,8 @@ if (citySearchForm) {
     citySearchForm.addEventListener('submit', async (e: SubmitEvent) => {
         e.preventDefault();
 
+        cityInput.blur();
+
         if (!searchResults.classList.contains('transition')) {
             searchResults.classList.add('transition');
         }
