@@ -61,14 +61,6 @@ if (citySearchForm) {
         }
     });
 
-    if (cityInput) {
-        cityInput.addEventListener('click', () => {
-            if (cityInput.value !== '') {
-                citySearchForm.dispatchEvent(new Event('submit', { cancelable: true }));
-            }
-        });
-    }
-
     document.addEventListener('click', (close) => {
         if (close.target !== searchResults && close.target !== cityInput) {
             searchResults.innerHTML = '';
@@ -124,7 +116,12 @@ function showWeatherData(currentWeather: CurrentWeather, forecast: Forecast) {
         currentDayIndex = 0;
     };
 
+    console.log(currentDayIndex);
+    console.log(daysArrs);
+
     updateWeatherDisplay(currentDayIndex, daysArrs, weatherDaily);
+
+
 
     const weatherCardSection = document.querySelector('section.weather-card') as HTMLElement;
     if (weatherCardSection) {
@@ -252,7 +249,7 @@ function updateForecastDate(dayIndex: number, daysArrs: ForecastSelectedData[][]
         }
     } else if (actualDayArrElement.forecastWeekDay === actualDayArrElement.currentWeekDay + 1) {
         actualWeekDay.innerHTML = 'Domani';
-        if (dayIndex > 0) {
+        if (dayIndex > 0 && daysArrs[0].length !== 0) {
             const previousDayArrElement = daysArrs[dayIndex - 1][0];
             previousDate.innerHTML = previousDayArrElement.forecastDate;
 
