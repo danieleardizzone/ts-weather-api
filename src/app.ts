@@ -116,12 +116,7 @@ function showWeatherData(currentWeather: CurrentWeather, forecast: Forecast) {
         currentDayIndex = 0;
     };
 
-    console.log(currentDayIndex);
-    console.log(daysArrs);
-
     updateWeatherDisplay(currentDayIndex, daysArrs, weatherDaily);
-
-
 
     const weatherCardSection = document.querySelector('section.weather-card') as HTMLElement;
     if (weatherCardSection) {
@@ -183,11 +178,6 @@ function getWeatherDays(forecast: Forecast) {
 function displayWeatherForDay(dayIndex: number, daysArrs: ForecastSelectedData[][], weatherDaily: HTMLElement) {
 
     weatherDaily.innerHTML = '';
-
-    // if (dayIndex < 0 || dayIndex >= daysArrs.length || !daysArrs[dayIndex] || daysArrs[dayIndex].length === 0) {
-    //     console.warn(`Nessun dato disponibile per il giorno con indice ${dayIndex}.`);
-    //     return;
-    // }
 
     const dayData = daysArrs[dayIndex];
 
